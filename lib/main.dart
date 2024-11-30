@@ -1,3 +1,6 @@
+// ignore_for_file: prefer_const_constructors
+
+import 'package:fitnest/pages/onBoarding_1.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,6 +16,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'FitnestX',
       theme: ThemeData(fontFamily: 'Poppins'),
+      debugShowCheckedModeBanner: false,
+      home: Onboarding1(),
     );
   }
 }
