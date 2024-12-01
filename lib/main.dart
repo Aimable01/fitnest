@@ -1,6 +1,6 @@
-// ignore_for_file: prefer_const_constructors
-
-import 'package:fitnest/pages/onBoarding_1.dart';
+import 'package:fitnest/pages/onboarding/onboarding_1.dart';
+import 'package:fitnest/pages/onboarding/onboarding_2.dart';
+import 'package:fitnest/pages/onboarding/onboarding_3.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +17,11 @@ class MyApp extends StatelessWidget {
       title: 'FitnestX',
       theme: ThemeData(fontFamily: 'Poppins'),
       debugShowCheckedModeBanner: false,
-      home: Onboarding1(),
+      home: const Onboarding1(),
+      routes: {
+        '/onboarding2': (context) => const Onboarding2(),
+        '/onboarding3': (context) => const Onboarding3()
+      },
     );
   }
 }
