@@ -5,7 +5,7 @@ class Swipe3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(
         child: Text('Swipe 3 screen'),
       ),

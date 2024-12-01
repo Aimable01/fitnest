@@ -18,7 +18,7 @@ class _Onboarding3State extends State<Onboarding3> {
 
   @override
   Widget build(BuildContext context) {
-    final totalPages = 4;
+    const totalPages = 4;
 
     return Scaffold(
       body: Stack(
@@ -32,24 +32,15 @@ class _Onboarding3State extends State<Onboarding3> {
                 _currentPage = index;
               });
             },
-            children: [Swipe1(), Swipe2(), Swipe3(), Swipe4()],
+            children: const [Swipe1(), Swipe2(), Swipe3(), Swipe4()],
           ),
           // Circular progress bar
           Positioned(
-            bottom: 50,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(
-                totalPages,
-                (index) {
-                  return Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 8.0),
-                    child: BuildProgressIndicator(
-                      isActive: index == _currentPage,
-                    ),
-                  );
-                },
-              ),
+            bottom: 40,
+            right: 30,
+            child: BuildProgressIndicator(
+              currentPage: _currentPage,
+              totalPages: 4,
             ),
           ),
         ],
