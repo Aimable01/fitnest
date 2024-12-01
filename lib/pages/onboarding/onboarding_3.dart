@@ -32,33 +32,37 @@ class _Onboarding3State extends State<Onboarding3> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        alignment: Alignment.center,
-        children: [
-          // Page view for onboarding screens
-          PageView(
-            controller: _pageController,
-            onPageChanged: (index) {
-              setState(() {
-                _currentPage = index;
-              });
-            },
-            children: const [Swipe1(), Swipe2(), Swipe3(), Swipe4()],
-          ),
-          // Circular progress bar
-          Positioned(
-            bottom: 20,
-            right: 10,
-            child: GestureDetector(
-              onTap: () => _goToNextPage(),
-              child: BuildProgressIndicator(
-                currentPage: _currentPage,
-                totalPages: 4,
-              ),
+      body: _onboarding(),
+    );
+  }
+
+  Stack _onboarding() {
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        // Page view for onboarding screens
+        PageView(
+          controller: _pageController,
+          onPageChanged: (index) {
+            setState(() {
+              _currentPage = index;
+            });
+          },
+          children: const [Swipe1(), Swipe2(), Swipe3(), Swipe4()],
+        ),
+        // Circular progress bar
+        Positioned(
+          bottom: 20,
+          right: 10,
+          child: GestureDetector(
+            onTap: () => _goToNextPage(),
+            child: BuildProgressIndicator(
+              currentPage: _currentPage,
+              totalPages: 4,
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

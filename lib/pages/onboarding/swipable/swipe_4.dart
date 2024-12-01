@@ -6,8 +6,11 @@ class Swipe4 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: SafeArea(
+    return Scaffold(body: _swipable());
+  }
+
+  SafeArea _swipable() {
+    return SafeArea(
       child: Column(
         children: [
           SizedBox(
@@ -46,6 +49,6 @@ class Swipe4 extends StatelessWidget {
           )
         ],
       ),
-    ));
+    );
   }
 }
