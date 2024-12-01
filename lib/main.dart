@@ -1,3 +1,4 @@
+import 'package:fitnest/pages/auth/register.dart';
 import 'package:fitnest/pages/onboarding/onboarding_1.dart';
 import 'package:fitnest/pages/onboarding/onboarding_2.dart';
 import 'package:fitnest/pages/onboarding/onboarding_3.dart';
@@ -20,7 +21,8 @@ class MyApp extends StatelessWidget {
       home: const Onboarding1(),
       routes: {
         '/onboarding2': (context) => const Onboarding2(),
-        '/onboarding3': (context) => const Onboarding3()
+        '/onboarding3': (context) => const Onboarding3(),
+        '/register': (context) => const Register()
       },
     );
   }

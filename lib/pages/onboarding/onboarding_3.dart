@@ -16,10 +16,21 @@ class _Onboarding3State extends State<Onboarding3> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
 
+  void _goToNextPage() {
+    if (_currentPage < 3) {
+      setState(() {
+        _currentPage++;
+      });
+
+      _pageController.animateToPage(_currentPage,
+          duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
+    } else {
+      Navigator.pushNamed(context, '/register');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    const totalPages = 4;
-
     return Scaffold(
       body: Stack(
         alignment: Alignment.center,
@@ -38,9 +49,12 @@ class _Onboarding3State extends State<Onboarding3> {
           Positioned(
             bottom: 20,
             right: 10,
-            child: BuildProgressIndicator(
-              currentPage: _currentPage,
-              totalPages: 4,
+            child: GestureDetector(
+              onTap: () => _goToNextPage(),
+              child: BuildProgressIndicator(
+                currentPage: _currentPage,
+                totalPages: 4,
+              ),
             ),
           ),
         ],
