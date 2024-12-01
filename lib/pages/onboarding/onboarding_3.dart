@@ -36,8 +36,8 @@ class _Onboarding3State extends State<Onboarding3> {
           ),
           // Circular progress bar
           Positioned(
-            bottom: 40,
-            right: 30,
+            bottom: 20,
+            right: 10,
             child: BuildProgressIndicator(
               currentPage: _currentPage,
               totalPages: 4,
