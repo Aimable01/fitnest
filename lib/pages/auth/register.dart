@@ -8,6 +8,16 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
+  final _formKey = GlobalKey<FormState>();
+  String? _firstName;
+  String? _lastName;
+  String? _email;
+  String? _password;
+
+  void _validateAndSubmit() {
+    // do something
+  }
+
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
