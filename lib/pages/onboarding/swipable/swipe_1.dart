@@ -37,7 +37,7 @@ class Swipe1 extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                       fontSize: 24),
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 22,
                 ),
                 Text(

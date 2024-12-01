@@ -12,9 +12,34 @@ class _RegisterState extends State<Register> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SafeArea(
-          child: Center(
-        child: Text('Register page'),
-      )),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            // the header
+            SizedBox(
+              height: 20,
+            ),
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    'Hey there,',
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                  ),
+                  Text(
+                    'Create an Account',
+                    style: TextStyle(fontSize: 23, fontWeight: FontWeight.w600),
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
