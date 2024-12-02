@@ -1,3 +1,4 @@
+import 'package:fitnest/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
 class Onboarding1 extends StatelessWidget {
@@ -52,35 +53,13 @@ class Onboarding1 extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          GestureDetector(
-            onTap: () {
-              Navigator.pushNamed(context, '/onboarding2');
-            },
-            child: Container(
-              height: 60,
-              width: 390,
-              margin: const EdgeInsets.only(bottom: 30),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
-                  boxShadow: [
-                    BoxShadow(
-                        color: Colors.black.withOpacity(0.11),
-                        blurRadius: 40,
-                        spreadRadius: 0.0)
-                  ],
-                  gradient: const LinearGradient(
-                      colors: [Color(0xff9DCEFF), Color(0xff92A3FD)])),
-              child: const Center(
-                child: Text(
-                  'Get Started',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 23),
-                ),
-              ),
-            ),
-          )
+          CustomButton(
+              text: 'Get Started',
+              gradient: const LinearGradient(
+                  colors: [Color(0xff9DCEFF), Color(0xff92A3FD)]),
+              onPressed: () {
+                Navigator.pushNamed(context, '/onboarding2');
+              })
         ],
       ),
     );
