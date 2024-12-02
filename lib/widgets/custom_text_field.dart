@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class CustomTextField extends StatelessWidget {
+class CustomTextField extends StatefulWidget {
   final bool obscureText;
   final String hintText;
   final String? prefixIconPath;
@@ -19,34 +19,65 @@ class CustomTextField extends StatelessWidget {
       this.onSave});
 
   @override
+  State<CustomTextField> createState() => _CustomTextFieldState();
+}
+
+class _CustomTextFieldState extends State<CustomTextField> {
+  late bool _isObscurred;
+
+  @override
+  void initState() {
+    super.initState();
+    _isObscurred = widget.obscureText;
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: TextFormField(
-        decoration: InputDecoration(
+      child: SizedBox(
+        height: 60,
+        child: TextFormField(
+          decoration: InputDecoration(
             filled: true,
-            fillColor: Colors.white,
-            hintText: hintText,
-            hintStyle: const TextStyle(color: Color(0xffDDDADA), fontSize: 14),
-            contentPadding: const EdgeInsets.all(15),
-            prefixIcon: prefixIconPath != null
+            fillColor: const Color.fromARGB(255, 244, 244, 244),
+            hintText: widget.hintText,
+            hintStyle: const TextStyle(
+              color: Color(0xffADA4A5),
+              fontSize: 16,
+            ),
+            contentPadding:
+                const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+            prefixIcon: widget.prefixIconPath != null
                 ? Padding(
                     padding: const EdgeInsets.all(12),
-                    child: SvgPicture.asset(prefixIconPath!),
+                    child: SvgPicture.asset(widget.prefixIconPath!),
                   )
                 : null,
-            suffixIcon: suffixIconPath != null
-                ? Padding(
-                    padding: const EdgeInsets.all(12),
-                    child: SvgPicture.asset(suffixIconPath!),
+            suffixIcon: widget.suffixIconPath != null
+                ? GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _isObscurred = !_isObscurred;
+                      });
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(12),
+                      child: SvgPicture.asset(_isObscurred
+                          ? widget.suffixIconPath!
+                          : "assets/icons/Show-Password.svg"),
+                    ),
                   )
                 : null,
             border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(15),
-                borderSide: BorderSide.none)),
-        obscureText: obscureText,
-        validator: validator,
-        onSaved: onSave,
+              borderRadius: BorderRadius.circular(15),
+              borderSide: BorderSide.none,
+            ),
+          ),
+          obscureText: _isObscurred,
+          validator: widget.validator,
+          onSaved: widget.onSave,
+        ),
       ),
     );
   }
